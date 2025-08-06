@@ -50,7 +50,7 @@ public class CreateOrderTests extends LoginUserTestBase {
 
         ErrorResponse errorResponse = createOrderResponse.as(ErrorResponse.class);
         assertFalse(errorResponse.isSuccess(), "Неверное значение поля 'success'");
-        assertEquals("Неверное значение поля 'message'", ErrorMessages.CREATE_ORDER_WITHOUT_ID, errorResponse.getMessage());
+        assertEquals("Ingredient ids must be provided", ErrorMessages.CREATE_ORDER_WITHOUT_ID, errorResponse.getMessage());
     }
 
     @Test
@@ -63,7 +63,7 @@ public class CreateOrderTests extends LoginUserTestBase {
 
         ErrorResponse errorResponse = createOrderResponse.as(ErrorResponse.class);
         assertFalse(errorResponse.isSuccess(), "Неверное значение поля 'success'");
-        assertEquals("Неверное значение поля 'message'", ErrorMessages.CREATE_ORDER_WITHOUT_ID, errorResponse.getMessage());
+        assertEquals("Ingredient ids must be provided", ErrorMessages.CREATE_ORDER_WITHOUT_ID, errorResponse.getMessage());
     }
 
     @Test
@@ -82,13 +82,13 @@ public class CreateOrderTests extends LoginUserTestBase {
     @DisplayName("Проверка невозможности создания заказа с невалидными хешами")
     @Description("Проверка невозможности создания заказа с невалидными хешами ингредиентов")
     public void unableToCreateOrderWithWrongIngredientsHashWithAuthorizationTest() {
-        OrderCreateRequest orderWithWrongHash = new OrderCreateRequest(Arrays.asList("1111111111111111111111", "22222222222222222222"));
+        OrderCreateRequest orderWithWrongHash = new OrderCreateRequest(Arrays.asList("111111111111111111111111", "222222222222222222222222"));
         Response createOrderResponse = this.orderClient.createOrder(this.registeredUser.getAccessToken(), orderWithWrongHash);
         assertEquals(HttpStatus.SC_BAD_REQUEST, createOrderResponse.statusCode(), "Неверный статус-код");
 
         ErrorResponse errorResponse = createOrderResponse.as(ErrorResponse.class);
         assertFalse(errorResponse.isSuccess(), "Неверное значение поля 'success'");
-        assertEquals("Неверное значение поля 'message'", ErrorMessages.CREATE_ORDER_WRONG_HASH, errorResponse.getMessage());
+        assertEquals("One or more ids provided are incorrect", ErrorMessages.CREATE_ORDER_WRONG_HASH, errorResponse.getMessage());
     }
 
     @Test
@@ -119,6 +119,6 @@ public class CreateOrderTests extends LoginUserTestBase {
 
         ErrorResponse errorResponse = getOrdersresponse.as(ErrorResponse.class);
         assertFalse(errorResponse.isSuccess(), "Неверное значение поля 'success'");
-        assertEquals("Неверное значение поля 'message'", ErrorMessages.USER_NOT_AUTHORIZED, errorResponse.getMessage());
+        assertEquals("You should be authorised", ErrorMessages.USER_NOT_AUTHORIZED, errorResponse.getMessage());
     }
 }

@@ -1,6 +1,18 @@
 package models.auth;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserInfoUpdateRequest {
+    private String email;
+    private String name;
+}
+
+/* public class UserInfoUpdateRequest {
     private String email;
     private String name;
 
@@ -27,4 +39,4 @@ public class UserInfoUpdateRequest {
     public void setName(String name) {
         this.name = name;
     }
-}
+} */

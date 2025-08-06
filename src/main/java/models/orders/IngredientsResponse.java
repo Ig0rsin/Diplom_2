@@ -1,6 +1,19 @@
 package models.orders;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class IngredientsResponse {
+    private boolean success;
+    private List<Ingredient> data;
+}
+
+/* import java.util.List;
 
 public class IngredientsResponse {
     private boolean success;
@@ -29,4 +42,4 @@ public class IngredientsResponse {
     public void setData(List<Ingredient> data) {
         this.data = data;
     }
-}
+} */

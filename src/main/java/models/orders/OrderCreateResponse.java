@@ -1,6 +1,19 @@
 package models.orders;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderCreateResponse {
+    private boolean success;
+    private String name;
+    private Order order;
+}
+
+/* public class OrderCreateResponse {
     private boolean success;
     private String name;
     private Order order;
@@ -37,4 +50,4 @@ public class OrderCreateResponse {
     public void setOrder(Order order) {
         this.order = order;
     }
-}
+} */

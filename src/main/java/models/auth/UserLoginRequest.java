@@ -1,6 +1,18 @@
 package models.auth;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserLoginRequest {
+    private String email;
+    private String password;
+}
+
+/* public class UserLoginRequest {
     private String email;
     private String password;
 
@@ -24,4 +36,4 @@ public class UserLoginRequest {
     public void setPassword(String password) {
         this.password = password;
     }
-}
+} */

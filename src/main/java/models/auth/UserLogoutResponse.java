@@ -1,6 +1,18 @@
 package models.auth;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserLogoutResponse {
+    private boolean success;
+    private String message;
+}
+
+/* public class UserLogoutResponse {
     private boolean success;
     private String message;
 
@@ -27,4 +39,4 @@ public class UserLogoutResponse {
     public void setMessage(String message) {
         this.message = message;
     }
-}
+} */

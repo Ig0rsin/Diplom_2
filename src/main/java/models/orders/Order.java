@@ -1,6 +1,26 @@
 package models.orders;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Order {
+    private String _id;
+    private String createdAt;
+    private List<Ingredient> ingredients;
+    private String name;
+    private int number;
+    private Owner owner;
+    private int price;
+    private String status;
+    private String updatedAt;
+}
+
+/* import java.util.List;
 
 public class Order {
     private String _id;
@@ -99,4 +119,4 @@ public class Order {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
-}
+} */

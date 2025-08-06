@@ -1,6 +1,20 @@
 package models.orders;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Owner {
+    private String createdAt;
+    private String email;
+    private String name;
+    private String updatedAt;
+}
+
+/* public class Owner {
     private String createdAt;
     private String email;
     private String name;
@@ -47,4 +61,4 @@ public class Owner {
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
-}
+} */

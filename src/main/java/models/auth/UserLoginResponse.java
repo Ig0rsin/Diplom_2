@@ -1,6 +1,20 @@
 package models.auth;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserLoginResponse {
+    private boolean success;
+    private String accessToken;
+    private String refreshToken;
+    private User user;
+}
+
+/* public class UserLoginResponse {
     private boolean success;
     private String accessToken;
     private String refreshToken;
@@ -47,4 +61,4 @@ public class UserLoginResponse {
     public void setUser(User user) {
         this.user = user;
     }
-}
+} */

@@ -14,50 +14,49 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.jupiter.version>5.13.3</junit.jupiter.version>
+        <junit.jupiter.version>5.10.0</junit.jupiter.version>
+        <junit5.version>5.10.0</junit5.version>
         <allure.version>2.17.3</allure.version>
         <aspectj.version>1.9.7</aspectj.version>
     </properties>
-
-    <dependencies>
-        <!-- JUnit 5 API and Engine -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit5.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- SLF4J Simple (для устранения предупреждений, иначн орёт чего-то пнро логи) -->
+        <!-- SLF4J Simple (для устранения предупреждений, иначе орёт чего-то про логи) -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.36</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- Lombok (опционально) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.28</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- Allure для отчетов -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
             <version>${allure.version}</version>
         </dependency>
-
-        <!-- Rest Assured для API тестирования -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -68,36 +67,34 @@
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj.version}</version></dependency>
-
-        <!-- Gson для работы с JSON -->
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.9</version>
+            <version>${aspectj.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-    </dependencies>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.9</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.javafaker</groupId>
+                <artifactId>javafaker</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+        </dependencies>
 
-    <!-- Конфигурация плагина Surefire для поиска тестов и поддержки JUnit 5 -->
+    <!-- Конфиг плагина Surefire для поиска тестов и поддержки JUnit 5 -->
     <build>
+
         <plugins>
-            <!-- Maven Surefire Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version><!-- или более новая версия, если есть -->
+                <version>3.0.0-M7</version>
                 <configuration>
                     <useModulePath>false</useModulePath>
-                    <!-- Указываем шаблоны для поиска тестовых классов -->
+                    <!-- шаблоны для поиска тестовых классов -->
                     <includes>
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>

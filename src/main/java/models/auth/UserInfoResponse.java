@@ -1,6 +1,18 @@
 package models.auth;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserInfoResponse {
+    private boolean success;
+    private User user;
+}
+
+/* public class UserInfoResponse {
     private boolean success;
     private User user;
 
@@ -27,4 +39,4 @@ public class UserInfoResponse {
     public void setUser(User user) {
         this.user = user;
     }
-}
+} */

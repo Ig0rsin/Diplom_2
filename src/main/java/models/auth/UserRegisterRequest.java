@@ -1,6 +1,19 @@
 package models.auth;
 
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserRegisterRequest {
+    private String email;
+    private String password;
+    private String name;
+}
+
+/* public class UserRegisterRequest {
     private String email;
     private String password;
     private String name;
@@ -34,4 +47,4 @@ public class UserRegisterRequest {
     public void setName(String name) {
         this.name = name;
     }
-}
+} */
